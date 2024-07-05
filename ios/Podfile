@@ -1,0 +1,6 @@
+platform :ios, '14.0'
+
+target 'Runner' do
+  use_frameworks!
+  # Pods for Runner
+end
