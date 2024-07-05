@@ -27,7 +27,7 @@ class _LoginScreenState extends State<LoginScreen> {
     // ignore: prefer_interpolation_to_compose_strings
     String phone = "+91 " + _phoneController.text.trim();
     String password = _passwordController.text.trim();
-    print("wtf fool");
+   
     if (phone == _correctPhone && password == _correctPassword) {
       // Navigate to the next screen if credentials are correct
       Navigator.pushReplacement(

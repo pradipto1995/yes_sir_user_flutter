@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_test/src/bookingscreen.dart';
 import 'package:flutter_application_test/src/technicianmodel.dart';
 //import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:location/location.dart';
+//import 'package:location/location.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -79,28 +79,28 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  Future<void> _getCurrentLocation() async {
-    Location location = Location();
+  //Future<void> _getCurrentLocation() async {
+   // Location location = Location();
 
-    bool serviceEnabled;
-    PermissionStatus permissionGranted;
+   // bool serviceEnabled;
+   // PermissionStatus permissionGranted;
     //LocationData locationData;
 
-    serviceEnabled = await location.serviceEnabled();
-    if (!serviceEnabled) {
-      serviceEnabled = await location.requestService();
-      if (!serviceEnabled) {
-        return;
-      }
-    }
+    // serviceEnabled = await location.serviceEnabled();
+    // if (!serviceEnabled) {
+    //   serviceEnabled = await location.requestService();
+    //   if (!serviceEnabled) {
+    //     return;
+    //   }
+    // }
 
-    permissionGranted = await location.hasPermission();
-    if (permissionGranted == PermissionStatus.denied) {
-      permissionGranted = await location.requestPermission();
-      if (permissionGranted != PermissionStatus.granted) {
-        return;
-      }
-    }
+    // permissionGranted = await location.hasPermission();
+    // if (permissionGranted == PermissionStatus.denied) {
+    //   permissionGranted = await location.requestPermission();
+    //   if (permissionGranted != PermissionStatus.granted) {
+    //     return;
+    //   }
+    // }
 
     //locationData = await location.getLocation();
 
@@ -112,7 +112,7 @@ class _HomeScreenState extends State<HomeScreen> {
     // mapController.animateCamera(
     //   CameraUpdate.newLatLng(_currentLocation!),
     // );
-  }
+  //}
 
   @override
   Widget build(BuildContext context) {
