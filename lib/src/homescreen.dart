@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_test/src/bookingscreen.dart';
 import 'package:flutter_application_test/src/technicianmodel.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+//import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -16,9 +16,9 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
-  late GoogleMapController mapController;
-  // final LatLng _center = const LatLng(45.521563, -122.677433);
-  LatLng? _currentLocation;
+  //late GoogleMapController mapController;
+ // final LatLng _center = const LatLng(45.521563, -122.677433);
+  //LatLng? _currentLocation;
   final TextEditingController _searchController = TextEditingController();
   Technicianmodel technicianmodel1 =
       Technicianmodel("assets/images/tech_1.png", "A. Sen", 26, 850.0, 5);
@@ -51,10 +51,10 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  void _onMapCreated(GoogleMapController controller) {
-    mapController = controller;
-    _getCurrentLocation();
-  }
+  // void _onMapCreated(GoogleMapController controller) {
+  //   mapController = controller;
+  //   _getCurrentLocation();
+  // }
 
   void filterList(var value) {
     for (Technicianmodel technicianmodel in technicianList) {
@@ -84,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     bool serviceEnabled;
     PermissionStatus permissionGranted;
-    LocationData locationData;
+    //LocationData locationData;
 
     serviceEnabled = await location.serviceEnabled();
     if (!serviceEnabled) {
@@ -102,16 +102,16 @@ class _HomeScreenState extends State<HomeScreen> {
       }
     }
 
-    locationData = await location.getLocation();
+    //locationData = await location.getLocation();
 
-    setState(() {
-      _currentLocation =
-          LatLng(locationData.latitude!, locationData.longitude!);
-    });
+    // setState(() {
+    //   _currentLocation =
+    //       LatLng(locationData.latitude!, locationData.longitude!);
+    // });
 
-    mapController.animateCamera(
-      CameraUpdate.newLatLng(_currentLocation!),
-    );
+    // mapController.animateCamera(
+    //   CameraUpdate.newLatLng(_currentLocation!),
+    // );
   }
 
   @override
@@ -154,20 +154,20 @@ class _HomeScreenState extends State<HomeScreen> {
           //     ),
           //   ),
           // ),
-          Expanded(
-            flex: 2,
-            child: Container(
-              height: MediaQuery.of(context).size.height * 0.5,
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                image: DecorationImage(
-                  image: AssetImage(
-                      'assets/images/map_dummy.png'), // Replace with your image asset
-                  fit: BoxFit.cover,
+            Expanded(
+              flex: 2,
+                  child: Container(
+                    height: MediaQuery.of(context).size.height * 0.5,
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
+                      image: DecorationImage(
+                        image: AssetImage(
+                            'assets/images/map_dummy.png'), // Replace with your image asset
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
                 ),
-              ),
-            ),
-          ),
           Expanded(
             flex: 3,
             child: Column(
@@ -227,12 +227,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           trailing: ElevatedButton(
                             onPressed: () {
                               // Implement your booking logic here
-                              Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const BookingScreen()),
-                              );
+  Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const BookingScreen()),
+      );
+
                             },
                             child: const Text('Book Now'),
                           ),
@@ -241,6 +240,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                   ),
                 ),
+              
               ],
             ),
           ),
